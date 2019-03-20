@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TutionRegistration.Models.Batches>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 style="color:maroon;">Marvellous Infosystem</h1>
+    <p class="lead">Welcome to Marvellous Infosystem, explore the world of computer programming.</p>
+    <p><a href="https://www.facebook.com/marvellousinfosystems" class="btn btn-primary btn-lg">visit facebook page &raquo;</a></p>
+</div>
+
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+
+    <h2>We have batches for : </h2>
+    <table class="table">
+  
+        <tr>
+           
+            @foreach (var item in Model)
+            {
+            <td>
+                <font size="6">@Html.ActionLink(item.Name, "Details", "Admin", new { id = item.Id }, null)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                @*//@Html.ActionLink("Approve", "EditStudent", new { id = item.Id })*@ 
+            </td>
+
+            }
+        </tr>
+        
+
+    </table>
+
+
+

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<TutionRegistration.Models.Students>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<font size="4" face="Comic Sans MS">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatchId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="background-color:darkblue">
+                @{
+                    if (item.Approved == true)
+                    {
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.Name)</font>
+                        </td>
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.Email)</font>
+                        </td>
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.Gender)</font>
+                        </td>
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.Qualification)</font>
+                        </td>
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.DOB, "{0:dd-MM-yyyy}")</font>
+                        </td>
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.Fee)</font>
+                        </td>
+                        <td>
+                            <font color="green">@Html.DisplayFor(modelItem => item.BatchId)</font>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.Name)</font>
+                        </td>
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.Email)</font>
+                        </td>
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.Gender)</font>
+                        </td>
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.Qualification)</font>
+                        </td>
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.DOB, "{0:dd-MM-yyyy}")</font>
+                        </td>
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.Fee)</font>
+                        </td>
+                        <td>
+                            <font color="red">@Html.DisplayFor(modelItem => item.BatchId)</font>
+                        </td>
+                    }
+                }
+                <td>
+                    @Html.ActionLink("Approve", "EditStudent", new { id = item.Id }) |
+                    @Html.ActionLink("Disapprove", "DisApprove", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</font>

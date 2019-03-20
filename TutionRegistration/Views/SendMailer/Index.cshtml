@@ -1,0 +1,26 @@
+﻿@model TutionRegistration.Models.MailModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="form-group">
+    <fieldset>
+        <legend>
+            Send Email
+        </legend>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p>From: </p>
+            <p>@Html.TextBoxFor(m => m.From,new { @class = "form-control" })</p>
+            <p>To: </p>
+            <p>@Html.TextBoxFor(m => m.To, new { @class = "form-control" })</p>
+            <p>Subject: </p>
+            <p>@Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })</p>
+            <p>Body: </p>
+            <p>@Html.TextAreaFor(m => m.Body, 10, 40, htmlAttributes: new { style = "width: 50%; max-width: 100%;" })</p>
+            <input type="submit" value="Send" class="btn btn-primary" />
+                }
+    </fieldset>
+</div>
